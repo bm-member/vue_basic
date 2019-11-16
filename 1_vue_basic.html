@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+    <!-- CDN -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <h1 v-bind:title="title">{{ title }}</h1>
+        <p :title="title" :class="title">{{ msg }}</p>
+        <p v-if="male">I am Male.</p>
+        <p v-else>I am Female</p>
+
+
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+            <tr v-for="user in users">
+                <th>{{ user.name }}</th>
+                <th>{{ user.address }}</th>
+            </tr>
+        </table>
+
+        <button onclick="showAlert()">Click Js Pure</button>
+        <button v-on:click="clicked()">Click Me Vue!</button>
+        <button @click="clicked()">Click Me Vue!</button>
+
+    </div>
+
+    <!-- CND -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script> -->
+    <script src="./node_modules/vue/dist/vue.min.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script>
+
+// header("Access-Control-Allow-Origin: *");
+
+        new Vue({
+            el: "#app",
+            data: {
+                title: 'Vue Intro',
+                msg: 'Hello Vue JS',
+                green: 'bg-success',
+                male: true,
+                users: []
+            },
+            methods: {
+                index() {
+                    /* this.users = [
+                        { name: 'Mg Mg', address: 'Yangon' },
+                        { name: 'Aye Aye', address: 'Yangon' },
+                        { name: 'Kyaw Kyaw', address: 'Yangon' },
+                    ] */
+
+                    let _this = this;
+
+                    axios.get('http://localhost:3000/api.php')
+                        .then(res => _this.users = res.data )
+                        .catch(error => console.log(error))
+
+                },
+                clicked() {
+                    alert(this.msg);
+                }
+            },
+            created() {
+                // alert('I am created method as constructor.');
+                this.index();
+            }
+        })
+
+        // Pure JS
+        function showAlert() {
+            alert('Hello JS');
+        }
+
+    </script>
+
+
+</body>
+
+</html>

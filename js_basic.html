@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Basic</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        /* function msg() {
+            return 'Hello JS';
+        } */
+
+       /*  const msg = function () {
+            return 'Hello JS';
+        } */
+
+        /* const msg =  ()  => {
+            return 'Hello JS';
+        } */
+
+        // const msg =  ()  => { return 'Hello JS'; } 
+
+        // const msg =  ()  => 'Hello JS'
+
+        // const msg =  (name)  => 'Hello ' + name
+
+        const msg =  name => 'Hello ' + name
+        
+        console.log(msg('Mg Mg'));
+
+
+            // let msg = 'helle from let';
+
+        //    const msg = 'Hello JS';
+        //    msg = 'Hello';
+
+
+
+        
+
+
+        var myarr = ['Mg Mg', 'Ag Ag'];
+
+        /* var myobj = {
+            name: 'Alex',
+            'age': 20,
+            eat: function (food) {
+                return 'Eat ' + food;
+            }
+        } */
+
+        /* var myobj = {
+            name: 'Alex',
+            'age': 20,
+            eat: food => 'Eat ' + food
+        } */
+
+        var myobj = {
+            name: 'Alex',
+            'age': 20,
+            eat(food) {
+                return 'Eat ' + food;
+            }
+        }
+
+        console.log(myobj.eat('Bread'))
+
+        var users = [
+            { name: 'Mg Mg', address: 'Yangon' },
+            { name: 'Aye Aye', address: 'Yangon' },
+            { name: 'Kyaw Kyaw', address: 'Yangon' },
+        ]
+
+        /* foreach($users as $key => $user) {
+
+        }
+ */
+        /* users.forEach(function(user) {
+            document.write(user + '<br>');
+        }); */
+
+        //  users.forEach(user =>  document.write(user + '<br>') );
+
+
+        /* for(var u=0; u < users.length ; u++) {
+            document.write(users[u].name + '<br>');
+        }
+ */
+
+
+
+    </script>
+</body>
+
+</html>
